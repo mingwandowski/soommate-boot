@@ -3,6 +3,8 @@ package com.mingwandowski.soommateboot.controller;
 import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.repo.HomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +23,8 @@ public class MainController {
     }
 
     @PostMapping("/addHome")
-    public String addHome (@RequestBody Home home) {
-        homeRepo.save(home);
-        return "home saved";
+    public ResponseEntity<Home> addHome (@RequestBody Home home) {
+        Home newHome = homeRepo.save(home);
+        return new ResponseEntity<>(newHome, HttpStatus.OK);
     }
 }
