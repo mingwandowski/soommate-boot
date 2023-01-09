@@ -1,0 +1,17 @@
+.sign-in-form {
+    text-align: left;
+}
+
+.sign-in-form input {
+    margin: 4px 0px;
+}
+
+.sign-in-form button {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.sign-in-form h2 {
+    text-align: center;
+}
