@@ -1,0 +1,13 @@
+.sign-up-form {
+    text-align: left;
+}
+
+.sign-up-form input {
+    margin: 4px 0px;
+}
+
+.sign-up-form button {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}

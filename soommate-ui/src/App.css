@@ -1,0 +1,19 @@
+.App {
+  background-color: #F8EDE3;
+}
+
+.login-component {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.introduction {
+  background-color: #DFD3C3;
+  padding: 1em;
+}
+
+.signin-signup {
+  background-color: #D0B8A8;
+  padding: 1em;
+}
