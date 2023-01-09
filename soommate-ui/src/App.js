@@ -1,8 +1,8 @@
 import './App.css';
 import Header from './components/Header';
-import Introduction from './components/start_component/Introduction';
-import HomeSignUp from './components/start_component/HomeSignUp';
-import HomeSignIn from './components/start_component/HomeSignIn';
+import Introduction from './components/login_component/Introduction';
+import HomeSignUp from './components/login_component/HomeSignUp';
+import HomeSignIn from './components/login_component/HomeSignIn';
 
 function App() {
   return (
