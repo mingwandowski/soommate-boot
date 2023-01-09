@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import Introduction from './components/start_component/Introduction';
 import HomeSignUp from './components/start_component/HomeSignUp';
+import HomeSignIn from './components/start_component/HomeSignIn';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
           <Introduction />
         </div>
         <div className='signin-signup col-lg-6'>
-          <HomeSignUp />
+          {/* <HomeSignUp /> */}
+          <HomeSignIn />
         </div>
       </div>
       <div className='main-component'>
