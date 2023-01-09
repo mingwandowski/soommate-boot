@@ -82,9 +82,9 @@ function HomeSignUp() {
 				<label>Name of Each Room</label>
 				<input className="form-control" onChange={changeInput} type="text" name="room1Name" placeholder="room1 name" />
 				<input className="form-control" onChange={changeInput} type="text" name="room2Name" placeholder="room2 name" />
-				<input className="form-control" onChange={changeInput} type="text" name="room3Name" placeholder="room3 name" />
-				<input className="form-control" onChange={changeInput} type="text" name="room4Name" placeholder="room4 name" />
-				<input className="form-control" onChange={changeInput} type="text" name="room5Name" placeholder="room5 name" />
+				<input className="form-control" onChange={changeInput} type="text" name="room3Name" placeholder="room3 name" style={{display: home.numOfRooms > 2 ? "block" : "none"}}/>
+				<input className="form-control" onChange={changeInput} type="text" name="room4Name" placeholder="room4 name" style={{display: home.numOfRooms > 3 ? "block" : "none"}}/>
+				<input className="form-control" onChange={changeInput} type="text" name="room5Name" placeholder="room5 name" style={{display: home.numOfRooms > 4 ? "block" : "none"}}/>
 			</div>
 			<div>
 			<button class="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
