@@ -17,3 +17,9 @@
   background-color: #D0B8A8;
   padding: 1em;
 }
+
+.main-component {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}

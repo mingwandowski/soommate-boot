@@ -87,7 +87,7 @@ function HomeSignUp() {
 				<input className="form-control" onChange={changeInput} type="text" name="room5Name" placeholder="room5 name" style={{display: home.numOfRooms > 4 ? "block" : "none"}}/>
 			</div>
 			<div>
-			<button class="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
+			<button className="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
 			</div>
 			
         </form>

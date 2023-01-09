@@ -3,7 +3,7 @@ import axios from "axios";
 
 import './HomeSignIn.css';
 
-function HomeSignIn() {
+function HomeSignIn(props) {
 
 	const defaultSignInHome = {
 		homeName: "",
@@ -22,7 +22,19 @@ function HomeSignIn() {
 	}
 
 	async function signInHome(signInHome) {
-		const url = `http://localhost:8080/addHome`;
+		const demoHome = {
+			homeName: "home1",
+			homePassword: "123",
+			numOfRooms: 2,
+			totalPrice: 100,
+			room1Name: "r1",
+			room2Name: "r2",
+			room3Name: "",
+			room4Name: "",
+			room5Name: ""
+		}
+		props.setHomeInfo(demoHome);
+		const url = `http://localhost:8080/signInHome`;
 		console.log("addHome");
 		try {
 			const config = {
@@ -58,9 +70,9 @@ function HomeSignIn() {
 				<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="create a password" required />
 			</div>
 			<div>
-			    <button class="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
+			    <button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
                 <h2>OR</h2>
-                <button class="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
+                <button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
 			</div>
 			
         </form>

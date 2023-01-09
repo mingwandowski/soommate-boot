@@ -16,12 +16,12 @@ function TabBar(props) {
     }
 
     return (
-        <ul class="nav nav-tabs nav-fill">
-            <li class="nav-item">
-                <button class={activeTab === 'signIn' ? 'nav-link active' : 'nav-link'} onClick={clickSignIn} >Sign In</button>
+        <ul className="nav nav-tabs nav-fill">
+            <li className="nav-item">
+                <button className={activeTab === 'signIn' ? 'nav-link active' : 'nav-link'} onClick={clickSignIn} >Sign In</button>
             </li>
-            <li class="nav-item">
-                <button class={activeTab === 'signUp' ? 'nav-link active' : 'nav-link'} onClick={clickSignUp} >Sign Up</button>
+            <li className="nav-item">
+                <button className={activeTab === 'signUp' ? 'nav-link active' : 'nav-link'} onClick={clickSignUp} >Sign Up</button>
             </li>
         </ul>
     );
