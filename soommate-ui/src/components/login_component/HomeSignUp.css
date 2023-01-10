@@ -1,13 +1,18 @@
 .sign-up-form {
     text-align: left;
+    width: 18rem;
+    margin: auto;
+    margin-top: 1rem;
+    min-height: 28rem;
 }
 
 .sign-up-form input {
     margin: 4px 0px;
+    font-size: 18px;
 }
 
 .sign-up-form button {
     text-align: center;
-    margin: auto;
+    margin: 1rem 0rem;
     width: 100%;
 }

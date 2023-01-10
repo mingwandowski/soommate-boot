@@ -60,22 +60,23 @@ function HomeSignIn(props) {
 	}
 
     return (
-        <form className="sign-in-form">
-			<div className="form-group">
-				<label>Home Name</label>
-				<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="enter home name" required />
-			</div>
-			<div className="form-group">
-				<label>Password</label>
-				<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="create a password" required />
-			</div>
-			<div>
-			    <button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
-                <h2>OR</h2>
-                <button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
-			</div>
-			
-        </form>
+		<div class="card card-registration my-4">
+			<h2>Sign In Home</h2>
+			<form className="sign-in-form">
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="Home Name" required />
+				</div>
+				<div className="form-group">
+
+					<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="Password" required />
+				</div>
+				<div>
+					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
+					<h4>OR</h4>
+					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
+				</div>
+			</form>
+		</div>
     );
 }
 

@@ -1,0 +1,12 @@
+.custom {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav {
+    --bs-nav-link-hover-color: gray;
+}
