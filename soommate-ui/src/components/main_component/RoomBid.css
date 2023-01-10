@@ -1,0 +1,22 @@
+.bid-form {
+    text-align: left;
+    width: 18rem;
+    margin: auto;
+    margin-top: 1rem;
+    min-height: 28rem;
+}
+
+.bid-form input {
+    margin: 4px 0px;
+    font-size: 18px;
+}
+
+.bid-form button {
+    text-align: center;
+    margin: 1rem 0rem;
+    width: 100%;
+}
+
+.bid-form .calculate-button {
+    margin-bottom: 3rem;
+}

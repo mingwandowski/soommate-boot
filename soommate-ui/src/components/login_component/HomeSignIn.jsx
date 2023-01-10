@@ -27,11 +27,8 @@ function HomeSignIn(props) {
 			homePassword: "123",
 			numOfRooms: 2,
 			totalPrice: 100,
-			room1Name: "r1",
-			room2Name: "r2",
-			room3Name: "",
-			room4Name: "",
-			room5Name: ""
+			room1Name: "master beedroom",
+			room2Name: "living room"
 		}
 		props.setHomeInfo(demoHome);
 		const url = `http://localhost:8080/signInHome`;

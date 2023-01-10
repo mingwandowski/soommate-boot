@@ -1,6 +1,6 @@
 .App {
   /* background-color: #F8EDE3; */
-  background-color: #3C2A21;
+  background-color: #D0B8A8;
 }
 
 .login-component {
@@ -10,14 +10,14 @@
 }
 
 .introduction {
-  background-color: #3C2A21;
+  background-color: #D0B8A8;
   /* background-color: #D0B8A8; */
   padding: 1em;
 }
 
 .signin-signup {
   /* background-color: #DFD3C3; */
-  background-color: #3C2A21;
+  background-color: #D0B8A8;
   padding: 1em;
   min-height: 30em;
 }
@@ -34,6 +34,6 @@
 }
 
 .room-bid {
-  background-color: #DFD3C3;
+  background-color: #D0B8A8;
   padding: 1em;
 }
