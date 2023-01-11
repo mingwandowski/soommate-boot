@@ -13,18 +13,16 @@ import javax.persistence.Id;
 @ToString
 @Getter
 @Setter
-public class Home {
+public class Bid {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    private String userName;
     private String homeName;
-    private String homePassword;
-    private int numOfRooms;
-    private double totalPrice;
-    private String room1Name;
-    private String room2Name;
-    private String room3Name;
-    private String room4Name;
-    private String room5Name;
+    private double room1Price;
+    private double room2Price;
+    private double room3Price;
+    private double room4Price;
+    private double room5Price;
 }
