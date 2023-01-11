@@ -57,7 +57,7 @@ function HomeSignIn(props) {
 	}
 
     return (
-		<div class="card card-registration my-4">
+		<div className="card card-registration my-4">
 			<h2>Sign In Home</h2>
 			<form className="sign-in-form">
 				<div className="form-group">

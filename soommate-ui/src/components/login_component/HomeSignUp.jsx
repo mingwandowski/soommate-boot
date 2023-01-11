@@ -55,7 +55,7 @@ function HomeSignUp() {
 	}
 
     return (
-		<div class="card card-registration my-4">
+		<div className="card card-registration my-4">
 			<h2>Sign Up Home</h2>
 			<form className="sign-up-form">
 				<div className="form-group">

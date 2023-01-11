@@ -3,7 +3,7 @@ import './RoomBid.css';
 
 function RoomBid(props) {
     return (
-		<div class="card card-registration my-4">
+		<div className="card card-registration my-4">
 			<form className="bid-form">
 				<h2>Give your Bid</h2>
 				<p>the sum of each room's bid: 100</p>

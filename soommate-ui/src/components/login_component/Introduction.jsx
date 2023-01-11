@@ -10,7 +10,7 @@ function Introduction() {
     return (
         <div>
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                alt="" class="img-fluid"
+                alt="" className="img-fluid"
                 style={style}
             />
         </div>

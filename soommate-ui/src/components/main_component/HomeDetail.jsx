@@ -14,7 +14,7 @@ function HomeDetail(props) {
 					</ul>
 				</div>
             <img src="https://th.bing.com/th/id/R.efd0fa5a74464be10d5a81f743786556?rik=QWouOHVvcdRdGg&riu=http%3a%2f%2fthe2d3dfloorplancompany.com%2fwp-content%2fuploads%2f2018%2f04%2f3D-Floor-Plan-General-Style.jpg&ehk=38h6oDCH1DC3x8OP1KbXsx%2bgLaNQZMlY7%2flhXUitWrs%3d&risl=&pid=ImgRaw&r=0"
-                alt="" class="img-fluid"
+                alt="" className="img-fluid"
             />
             <p>(sample image)</p>
         </div>
