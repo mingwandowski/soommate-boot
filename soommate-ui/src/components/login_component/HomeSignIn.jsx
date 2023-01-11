@@ -3,7 +3,7 @@ import axios from "axios";
 
 import './HomeSignIn.css';
 
-function HomeSignIn() {
+function HomeSignIn(props) {
 
 	const defaultSignInHome = {
 		homeName: "",
@@ -22,7 +22,16 @@ function HomeSignIn() {
 	}
 
 	async function signInHome(signInHome) {
-		const url = `http://localhost:8080/addHome`;
+		const demoHome = {
+			homeName: "home1",
+			homePassword: "123",
+			numOfRooms: 2,
+			totalPrice: 100,
+			room1Name: "master beedroom",
+			room2Name: "living room"
+		}
+		props.setHomeInfo(demoHome);
+		const url = `http://localhost:8080/signInHome`;
 		console.log("addHome");
 		try {
 			const config = {
@@ -48,22 +57,23 @@ function HomeSignIn() {
 	}
 
     return (
-        <form className="sign-in-form">
-			<div className="form-group">
-				<label>Home Name</label>
-				<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="enter home name" required />
-			</div>
-			<div className="form-group">
-				<label>Password</label>
-				<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="create a password" required />
-			</div>
-			<div>
-			    <button class="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
-                <h2>OR</h2>
-                <button class="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
-			</div>
-			
-        </form>
+		<div class="card card-registration my-4">
+			<h2>Sign In Home</h2>
+			<form className="sign-in-form">
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="Home Name" required />
+				</div>
+				<div className="form-group">
+
+					<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="Password" required />
+				</div>
+				<div>
+					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
+					<h4>OR</h4>
+					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
+				</div>
+			</form>
+		</div>
     );
 }
 

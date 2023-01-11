@@ -55,42 +55,43 @@ function HomeSignUp() {
 	}
 
     return (
-        <form className="sign-up-form">
-			<div className="form-group">
-				<label>Home Name</label>
-				<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="enter home name" required />
-			</div>
-			<div className="form-group">
-				<label>Password</label>
-				<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="create a password" required />
-				<input className="form-control" type="password" placeholder="confirm your password" required />
-			</div>
-			<div className="form-group">
-				<label>Total Price</label>
-				<input className="form-control" onChange={changeInput} type="text" name="totalPrice" placeholder="total price" required="" />
-			</div>
-			<div className="form-group">
-				<label>number of rooms:</label>
-				<select className="form-control" onChange={changeInput} name="numOfRooms" defaultValue={2}>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div className="form-group">
-				<label>Name of Each Room</label>
-				<input className="form-control" onChange={changeInput} type="text" name="room1Name" placeholder="room1 name" />
-				<input className="form-control" onChange={changeInput} type="text" name="room2Name" placeholder="room2 name" />
-				<input className="form-control" onChange={changeInput} type="text" name="room3Name" placeholder="room3 name" style={{display: home.numOfRooms > 2 ? "block" : "none"}}/>
-				<input className="form-control" onChange={changeInput} type="text" name="room4Name" placeholder="room4 name" style={{display: home.numOfRooms > 3 ? "block" : "none"}}/>
-				<input className="form-control" onChange={changeInput} type="text" name="room5Name" placeholder="room5 name" style={{display: home.numOfRooms > 4 ? "block" : "none"}}/>
-			</div>
-			<div>
-			<button class="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
-			</div>
-			
-        </form>
+		<div class="card card-registration my-4">
+			<h2>Sign Up Home</h2>
+			<form className="sign-up-form">
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="text" name="homeName" placeholder="Home Name" required />
+				</div>
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="Create a Password" required />
+					<input className="form-control" type="password" placeholder="Confirm your Password" required />
+				</div>
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="text" name="totalPrice" placeholder="Total Price" required="" />
+				</div>
+				<div className="form-group row">
+					<label className="col-8">Number of Rooms:</label>
+					<div className="col-4">
+						<select className="form-control" onChange={changeInput} name="numOfRooms" defaultValue={2}>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+				</div>
+				<div className="form-group">
+					<input className="form-control" onChange={changeInput} type="text" name="room1Name" placeholder="Room1 Name" />
+					<input className="form-control" onChange={changeInput} type="text" name="room2Name" placeholder="Room2 Name" />
+					<input className="form-control" onChange={changeInput} type="text" name="room3Name" placeholder="Room3 Name" style={{display: home.numOfRooms > 2 ? "block" : "none"}}/>
+					<input className="form-control" onChange={changeInput} type="text" name="room4Name" placeholder="Room4 Name" style={{display: home.numOfRooms > 3 ? "block" : "none"}}/>
+					<input className="form-control" onChange={changeInput} type="text" name="room5Name" placeholder="Room5 Name" style={{display: home.numOfRooms > 4 ? "block" : "none"}}/>
+				</div>
+				<div>
+				<button className="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
+				</div>
+				
+			</form>
+		</div>
     );
 }
 

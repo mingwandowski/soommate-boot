@@ -1,17 +1,27 @@
 .sign-in-form {
     text-align: left;
+    width: 18rem;
+    margin: auto;
+    margin-top: 1rem;
+    min-height: 28rem;
 }
 
 .sign-in-form input {
     margin: 4px 0px;
+    font-size: 18px;
 }
 
 .sign-in-form button {
     text-align: center;
-    margin: auto;
+    margin: 1rem 0rem;
     width: 100%;
 }
 
-.sign-in-form h2 {
+h2 {
+    margin: 3rem 0 1rem;
+}
+
+h4 {
+    margin: auto;
     text-align: center;
 }
