@@ -1,4 +1,4 @@
-.sign-up-form {
+.bid-form {
     text-align: left;
     width: 18rem;
     margin: auto;
@@ -6,13 +6,17 @@
     min-height: 28rem;
 }
 
-.sign-up-form input {
+.bid-form input {
     margin: 4px 0px;
     font-size: 18px;
 }
 
-.sign-up-form button {
+.bid-form button {
     text-align: center;
     margin: 1rem 0rem;
     width: 100%;
+}
+
+.bid-form .calculate-button {
+    margin-bottom: 3rem;
 }

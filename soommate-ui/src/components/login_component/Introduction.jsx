@@ -1,9 +1,18 @@
 import React from "react";
 
 function Introduction() {
+
+    const style = {
+        borderTopLeftRadius: ".25rem",
+        borderBottomLeftRadius: ".25rem"
+    }
+
     return (
         <div>
-            <h1>How to Use</h1>
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="" class="img-fluid"
+                style={style}
+            />
         </div>
     );
 }

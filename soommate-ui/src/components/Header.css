@@ -1,9 +1,10 @@
 header {
-    background-color: #85586F;
+    /* background-color: #85586F; */
+    background-color: #3C2A21;
 }
 
 header h1 {
     margin: 0;
     padding: 8px;
-    color: #F8EDE3;
+    color: #E5E5CB;
 }
