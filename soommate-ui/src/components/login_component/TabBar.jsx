@@ -3,6 +3,10 @@ import './TabBar.css'
 
 function TabBar(props) {
 
+    React.useEffect(() => {
+        setActiveTab(props.homeOperation);
+    }, [props.homeOperation]);
+
     const [SIGNIN, SIGNUP] = ['signIn', 'signUp'];
     const [activeTab, setActiveTab] = React.useState(SIGNIN);
 

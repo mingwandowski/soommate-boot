@@ -3,7 +3,7 @@ import axios from "axios";
 
 import './HomeSignUp.css';
 
-function HomeSignUp() {
+function HomeSignUp(props) {
 
 	const defaultHome = {
 		homeName: "",
@@ -38,9 +38,12 @@ function HomeSignUp() {
 					"Access-Control-Allow-Origin": "*"
 				}
 			}
-			const data = await axios.post(url, home, config);
-			if(data !== null) {
-				console.log(data);
+			const res = await axios.post(url, home, config);
+			if(res?.data?.status === 'success') {
+				const newHome = res.data.data;
+				props.setHomeInfo(newHome);
+			} else {
+				console.log(res);
 			}
 		} catch (err) {
 			console.log(err);

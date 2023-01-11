@@ -21,9 +21,9 @@ function App() {
           <Introduction />
         </div>
         <div className='signin-signup col-lg-6'>
-          <TabBar setOperation={setHomeOperation} />
-          {homeOperation === 'signIn' && (<HomeSignIn setHomeInfo={setHomeInfo} />)}
-          {homeOperation === 'signUp' && (<HomeSignUp />)}
+          <TabBar setOperation={setHomeOperation} homeOperation={homeOperation} />
+          {homeOperation === 'signIn' && (<HomeSignIn setHomeInfo={setHomeInfo} setOperation={setHomeOperation} />)}
+          {homeOperation === 'signUp' && (<HomeSignUp setHomeInfo={setHomeInfo} />)}
         </div>
       </div>
       <div className='main-component row' style={{display: Object.keys(homeInfo).length === 0 ? "none" : ""}}>

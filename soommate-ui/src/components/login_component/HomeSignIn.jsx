@@ -22,17 +22,8 @@ function HomeSignIn(props) {
 	}
 
 	async function signInHome(signInHome) {
-		const demoHome = {
-			homeName: "home1",
-			homePassword: "123",
-			numOfRooms: 2,
-			totalPrice: 100,
-			room1Name: "master beedroom",
-			room2Name: "living room"
-		}
-		props.setHomeInfo(demoHome);
 		const url = `http://localhost:8080/signInHome`;
-		console.log("addHome");
+		console.log("signInHome");
 		try {
 			const config = {
 				headers: {
@@ -40,9 +31,12 @@ function HomeSignIn(props) {
 					"Access-Control-Allow-Origin": "*"
 				}
 			}
-			const data = await axios.post(url, home, config);
-			if(data !== null) {
-				console.log(data);
+			const res = await axios.post(url, signInHome, config);
+			if(res?.data?.status === 'success') {
+				const resultHome = res.data.data;
+				props.setHomeInfo(resultHome);
+			} else {
+				console.log(res);
 			}
 		} catch (err) {
 			console.log(err);
@@ -52,6 +46,12 @@ function HomeSignIn(props) {
 	function clickSignIn(event) {
 		console.log(home);
 		signInHome(home);
+
+		event.preventDefault();
+	}
+
+	function clickSignUp(event) {
+		props.setOperation('signUp');
 
 		event.preventDefault();
 	}
@@ -70,7 +70,7 @@ function HomeSignIn(props) {
 				<div>
 					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign In</button>
 					<h4>OR</h4>
-					<button className="btn btn-primary btn-block signup-button" onClick={clickSignIn} type="button">Sign Up</button>
+					<button className="btn btn-primary btn-block signup-button" onClick={clickSignUp} type="button">Sign Up</button>
 				</div>
 			</form>
 		</div>
