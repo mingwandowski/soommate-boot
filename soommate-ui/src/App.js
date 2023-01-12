@@ -12,6 +12,7 @@ function App() {
 
   const [homeOperation, setHomeOperation] = React.useState('signIn');
   const [homeInfo, setHomeInfo] = React.useState({});
+  const [allBidsChangeFlag, setAllBidsChangeFlag] = React.useState(0);
 
   return (
     <div className="App">
@@ -28,10 +29,10 @@ function App() {
       </div>
       <div className='main-component row' style={{display: Object.keys(homeInfo).length === 0 ? "none" : ""}}>
         <div className='home-detail col-lg-6'>
-          <HomeDetail homeInfo={homeInfo} />
+          <HomeDetail homeInfo={homeInfo} allBidsChangeFlag={allBidsChangeFlag} />
         </div>
         <div className='room-bid col-lg-6'>
-          <RoomBid homeInfo={homeInfo} />
+          <RoomBid homeInfo={homeInfo} setAllBidsChangeFlag={setAllBidsChangeFlag} />
         </div>
       </div>
     </div>

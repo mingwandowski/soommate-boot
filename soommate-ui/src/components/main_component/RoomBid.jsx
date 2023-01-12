@@ -16,15 +16,28 @@ function RoomBid(props) {
 		room5Price: ""
 	}
 	const [bid, setBid] = React.useState(defaultBid);
+	const [priceSum, setPriceSum] = React.useState(0);
+
+	function calculatePriceSum(tmpBid) {
+		var sum = 0;
+		sum += Number(tmpBid.room1Price);
+		sum += Number(tmpBid.room2Price);
+		sum += Number(tmpBid.room3Price);
+		sum += Number(tmpBid.room4Price);
+		sum += Number(tmpBid.room5Price);
+		return sum;
+	}
 
 	function changeInput(event) {
 		const {name, value} = event.target;
-		setBid(prev => {
-			return {
-				...prev,
+		setBid(prevBid => {
+			const newBid = {
+				...prevBid,
 				homeName: homeInfo.homeName,
 				[name]: value
-			};
+			}
+			setPriceSum(calculatePriceSum(newBid));
+			return newBid;
 		});
 	}
 
@@ -47,6 +60,7 @@ function RoomBid(props) {
 				const newBid = res.data.data;
 				console.log(newBid);
 				resetBid();
+				props.setAllBidsChangeFlag(prev => prev + 1);
 			} else {
 				console.log(res);
 			}
@@ -56,9 +70,14 @@ function RoomBid(props) {
 	}
 
 	function clickSubmit(event) {
-		console.log(bid);
-		addBid(bid);
-		
+		if(bid.userName.trim().length === 0) {
+			alert('you have to enter your name');
+		} else if(priceSum !== homeInfo.totalPrice) {
+			alert('sum of each room\'s price should equals to ' + homeInfo.totalPrice);
+		} else {
+			console.log(bid);
+			addBid(bid);
+		}
 		event.preventDefault();
 	}
 
@@ -72,26 +91,26 @@ function RoomBid(props) {
 				</div>
 				<div className="form-group">
 					<label>{homeInfo.room1Name}</label>
-					<input className="form-control" type="text" name="room1Price" value={bid.room1Price} placeholder="room1 Price" onChange={changeInput} />
+					<input className="form-control" type="number" name="room1Price" value={bid.room1Price} placeholder="room1 Price" onChange={changeInput} />
 				</div>
 				<div className="form-group">
 					<label>{homeInfo.room2Name}</label>
-					<input className="form-control" type="text" name="room2Price" value={bid.room2Price} placeholder="room2 Price" onChange={changeInput} />
+					<input className="form-control" type="number" name="room2Price" value={bid.room2Price} placeholder="room2 Price" onChange={changeInput} />
 				</div>
 				<div className="form-group" style={{display: homeInfo.numOfRooms > 2 ? "block" : "none"}}>
 					<label>{homeInfo.room3Name}</label>
-					<input className="form-control" type="text" name="room3Price" value={bid.room3Price} placeholder="room3 Price" onChange={changeInput} />
+					<input className="form-control" type="number" name="room3Price" value={bid.room3Price} placeholder="room3 Price" onChange={changeInput} />
 				</div>
 				<div className="form-group" style={{display: homeInfo.numOfRooms > 3 ? "block" : "none"}}>
 					<label>{homeInfo.room4Name}</label>
-					<input className="form-control" type="text" name="room4Price" value={bid.room4Price} placeholder="room4 Price" onChange={changeInput} />
+					<input className="form-control" type="number" name="room4Price" value={bid.room4Price} placeholder="room4 Price" onChange={changeInput} />
 				</div>
 				<div className="form-group" style={{display: homeInfo.numOfRooms > 4 ? "block" : "none"}}>
 					<label>{homeInfo.room5Name}</label>
-					<input className="form-control" type="text" name="room5Price" value={bid.room5Price} placeholder="room5 Price" onChange={changeInput} />
+					<input className="form-control" type="number" name="room5Price" value={bid.room5Price} placeholder="room5 Price" onChange={changeInput} />
 				</div>
-				<h4>Sum of Prices Now: {1000}</h4>
-				<button className="btn btn-secondary btn-block reset-button" type="reset">Reset</button>
+				<h4>Sum of Prices Now: {priceSum}</h4>
+				<button className="btn btn-secondary btn-block reset-button" type="reset" onClick={resetBid}>Reset</button>
 				<button className="btn btn-primary btn-block submit-button" type="button" onClick={clickSubmit}>Submit</button>
 			</form>
 		</div>
