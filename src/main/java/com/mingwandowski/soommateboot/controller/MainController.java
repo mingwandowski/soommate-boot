@@ -45,4 +45,10 @@ public class MainController {
         Map<String, Object> resultMap = mainService.addBid(bid);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
+
+    @GetMapping("getBids")
+    public ResponseEntity<Map<String, Object>> getUsers(@RequestParam String homeName) {
+        Map<String, Object> resultMap = mainService.findBids(homeName);
+        return new ResponseEntity<>(resultMap, HttpStatus.OK);
+    }
 }
