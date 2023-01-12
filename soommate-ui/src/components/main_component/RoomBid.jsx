@@ -91,7 +91,7 @@ function RoomBid(props) {
 					<input className="form-control" type="text" name="room5Price" value={bid.room5Price} placeholder="room5 Price" onChange={changeInput} />
 				</div>
 				<h4>Sum of Prices Now: {1000}</h4>
-				<button className="btn btn-secondary btn-block reset-button" type="reset">Reset</button>
+				<button className="btn btn-secondary btn-block reset-button" type="reset" onClick={resetBid}>Reset</button>
 				<button className="btn btn-primary btn-block submit-button" type="button" onClick={clickSubmit}>Submit</button>
 			</form>
 		</div>
