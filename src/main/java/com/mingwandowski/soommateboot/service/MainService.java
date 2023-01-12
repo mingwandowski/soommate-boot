@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -54,6 +55,18 @@ public class MainService {
         Bid newBid = bidRepo.save(bid);
         if(newBid != null) {
             result.put(DATA, newBid);
+            result.put(STATUS, SUCCESS);
+        } else {
+            result.put(STATUS, FAILED);
+        }
+        return result;
+    }
+
+    public Map<String, Object> findBids(String homeName) {
+        Map<String, Object> result = new HashMap<>();
+        List<Bid> bids = bidRepo.findAllByHomeName(homeName);
+        if(bids != null) {
+            result.put(DATA, bids);
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
