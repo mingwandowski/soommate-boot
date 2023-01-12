@@ -47,6 +47,7 @@ function RoomBid(props) {
 				const newBid = res.data.data;
 				console.log(newBid);
 				resetBid();
+				props.setAllBidsChangeFlag(prev => prev + 1);
 			} else {
 				console.log(res);
 			}
