@@ -51,4 +51,10 @@ public class MainController {
         Map<String, Object> resultMap = mainService.findBids(homeName);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
+
+    @GetMapping("calculate")
+    public ResponseEntity<Map<String, Object>> calculate(@RequestParam String homeName) {
+        Map<String, Object> resultMap = mainService.calculateResult(homeName);
+        return new ResponseEntity<>(resultMap, HttpStatus.OK);
+    }
 }

@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface HomeRepo extends JpaRepository<Home, Long> {
 
     Optional<Home> findByHomeNameAndHomePassword(String homeName, String password);
+
+    Home findByHomeName(String homeName);
 }
