@@ -25,6 +25,25 @@ function HomeDetail(props) {
         }
     }
 
+    async function calculateResult(homeName) {
+        const url = `http://localhost:8080/calculate?homeName=${homeName}`;
+        try {
+            const res = await axios.get(url);
+            if(res?.data?.status === 'success') {
+                props.setCalculateResult(res.data.data);
+                console.log(res.data.data);
+            } else {
+                console.log(res);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    function clickShowResult() {
+        calculateResult(props.homeInfo.homeName);
+    }
+
     return (
         <div>
             <h2>Welcome to {props.homeInfo.homeName}</h2>
@@ -41,6 +60,7 @@ function HomeDetail(props) {
                 alt="" className="img-fluid"
             />
             <p>(sample image)</p>
+            <button className="btn btn-lg btn-dark" onClick={clickShowResult} disabled={props.homeInfo.numOfRooms > bids.length}>SHOW RESULT!</button>
         </div>
     );
 }

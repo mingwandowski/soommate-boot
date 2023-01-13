@@ -1,0 +1,18 @@
+.result-page {
+    min-height: 30rem;
+}
+
+.result-card {
+    width: 70%;
+    margin: 1rem auto;
+}
+
+.result-page h1 {
+    margin-top: 2rem;
+}
+
+.result-page button {
+    text-align: center;
+    margin: 1rem auto 3rem;
+    width: 70%;
+}
