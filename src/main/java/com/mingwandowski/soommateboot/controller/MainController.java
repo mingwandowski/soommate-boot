@@ -2,7 +2,9 @@ package com.mingwandowski.soommateboot.controller;
 
 import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.MongoHome;
 import com.mingwandowski.soommateboot.repo.HomeRepo;
+import com.mingwandowski.soommateboot.repo.MongoHomeRepo;
 import com.mingwandowski.soommateboot.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class MainController {
 
     @Autowired
     MainService mainService;
+
+    @Autowired
+    MongoHomeRepo mongoHomeRepo;
 
     @GetMapping("/getHomes")
     public ResponseEntity<List<Home>> getHomes() {
@@ -55,6 +60,12 @@ public class MainController {
     @GetMapping("calculate")
     public ResponseEntity<Map<String, Object>> calculate(@RequestParam String homeName) {
         Map<String, Object> resultMap = mainService.calculateResult(homeName);
+        return new ResponseEntity<>(resultMap, HttpStatus.OK);
+    }
+
+    @GetMapping("test")
+    public ResponseEntity<List<MongoHome>> test() {
+        List<MongoHome> resultMap = mongoHomeRepo.findAll();
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 }
