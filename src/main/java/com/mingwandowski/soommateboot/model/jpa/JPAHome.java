@@ -16,7 +16,7 @@ public class JPAHome {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private String id;
     private String homeName;
     private String homePassword;
     private int numOfRooms;

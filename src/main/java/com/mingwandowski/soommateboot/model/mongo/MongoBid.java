@@ -3,8 +3,6 @@ package com.mingwandowski.soommateboot.model.mongo;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @AllArgsConstructor
@@ -16,8 +14,7 @@ import javax.persistence.Id;
 public class MongoBid {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private String id;
     private String userName;
     private String homeName;
     private double room1Price;

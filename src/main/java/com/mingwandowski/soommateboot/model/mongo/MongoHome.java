@@ -30,7 +30,7 @@ public class MongoHome {
     public static MongoHome parseHome(HomeBody home) {
 
         return new MongoHome(
-                UUID.randomUUID().toString(), home.getHomeName(), home.getHomePassword(), home.getNumOfRooms(),
+                home.getId(), home.getHomeName(), home.getHomePassword(), home.getNumOfRooms(),
                 home.getTotalPrice(), home.getRoom1Name(), home.getRoom2Name(), home.getRoom3Name(),
                 home.getRoom4Name(), home.getRoom5Name());
     }

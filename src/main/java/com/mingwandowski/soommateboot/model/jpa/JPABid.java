@@ -15,8 +15,7 @@ import javax.persistence.*;
 public class JPABid {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private String id;
     private String userName;
     private String homeName;
     private double room1Price;

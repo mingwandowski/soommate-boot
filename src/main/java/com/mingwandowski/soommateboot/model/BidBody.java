@@ -2,11 +2,13 @@ package com.mingwandowski.soommateboot.model;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class BidBody {
 
-    private int id;
+    private String id = UUID.randomUUID().toString();
     private String userName;
     private String homeName;
     private double room1Price;
