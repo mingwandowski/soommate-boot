@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 public class MongoHome {
 
     @Id
-    private int id;
+    private String id;
     private String homeName;
     private String homePassword;
     private int numOfRooms;
@@ -24,4 +25,12 @@ public class MongoHome {
     private String room3Name;
     private String room4Name;
     private String room5Name;
+
+    public static MongoHome parseHome(Home home) {
+
+        return new MongoHome(
+                UUID.randomUUID().toString(), home.getHomeName(), home.getHomePassword(), home.getNumOfRooms(),
+                home.getTotalPrice(), home.getRoom1Name(), home.getRoom2Name(), home.getRoom3Name(),
+                home.getRoom4Name(), home.getRoom5Name());
+    }
 }
