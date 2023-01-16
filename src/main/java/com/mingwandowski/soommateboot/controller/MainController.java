@@ -1,7 +1,7 @@
 package com.mingwandowski.soommateboot.controller;
 
-import com.mingwandowski.soommateboot.model.HomeBody;
-import com.mingwandowski.soommateboot.model.BidBody;
+import com.mingwandowski.soommateboot.model.Home;
+import com.mingwandowski.soommateboot.model.Bid;
 import com.mingwandowski.soommateboot.service.impl.JPAMainServiceImpl;
 import com.mingwandowski.soommateboot.service.MainService;
 import com.mingwandowski.soommateboot.service.impl.MongoMainServiceImpl;
@@ -36,19 +36,19 @@ public class MainController {
     }
 
     @PostMapping("/addHome")
-    public ResponseEntity<Map<String, Object>> addHome(@RequestBody HomeBody home) {
+    public ResponseEntity<Map<String, Object>> addHome(@RequestBody Home home) {
         Map<String, Object> resultMap = getMainService().addHome(home);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 
     @PostMapping("/signInHome")
-    public ResponseEntity<Map<String, Object>> signInHome(@RequestBody HomeBody signInHomeBody) {
+    public ResponseEntity<Map<String, Object>> signInHome(@RequestBody Home signInHomeBody) {
         Map<String, Object> resultMap = getMainService().signInHome(signInHomeBody.getHomeName(), signInHomeBody.getHomePassword());
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 
     @PostMapping("/addBid")
-    public ResponseEntity<Map<String, Object>> addBid(@RequestBody BidBody bid) {
+    public ResponseEntity<Map<String, Object>> addBid(@RequestBody Bid bid) {
         Map<String, Object> resultMap = getMainService().addBid(bid);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }

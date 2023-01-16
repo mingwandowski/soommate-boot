@@ -6,7 +6,9 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class BidBody {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Bid {
 
     private String id = UUID.randomUUID().toString();
     private String userName;

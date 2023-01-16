@@ -1,7 +1,7 @@
 package com.mingwandowski.soommateboot.service.impl;
 
-import com.mingwandowski.soommateboot.model.BidBody;
-import com.mingwandowski.soommateboot.model.HomeBody;
+import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.model.Result;
 import com.mingwandowski.soommateboot.model.jpa.JPABid;
 import com.mingwandowski.soommateboot.model.jpa.JPAHome;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class JPAMainServiceImpl implements MainService {
@@ -23,12 +24,12 @@ public class JPAMainServiceImpl implements MainService {
     @Autowired
     JPABidRepo bidRepo;
 
-    public Map<String, Object> addHome(HomeBody home) {
+    public Map<String, Object> addHome(Home home) {
         Map<String, Object> result = new HashMap<>();
         JPAHome jpaHome = JPAHome.parseHome(home);
         JPAHome newJPAHome = homeRepo.save(jpaHome);
         if(newJPAHome != null) {
-            result.put(DATA, newJPAHome);
+            result.put(DATA, newJPAHome.parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -40,7 +41,7 @@ public class JPAMainServiceImpl implements MainService {
         Map<String, Object> result = new HashMap<>();
         Optional<JPAHome> homeOpt = homeRepo.findByHomeNameAndHomePassword(homeName, password);
         if(homeOpt.isPresent()) {
-            result.put(DATA, homeOpt.get());
+            result.put(DATA, homeOpt.get().parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -48,12 +49,12 @@ public class JPAMainServiceImpl implements MainService {
         return result;
     }
 
-    public Map<String, Object> addBid(BidBody bid) {
+    public Map<String, Object> addBid(Bid bid) {
         Map<String, Object> result = new HashMap<>();
         JPABid jpaBid = JPABid.parseBid(bid);
         JPABid newBid = bidRepo.save(jpaBid);
         if(newBid != null) {
-            result.put(DATA, newBid);
+            result.put(DATA, newBid.parseToBid());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -63,8 +64,9 @@ public class JPAMainServiceImpl implements MainService {
 
     public Map<String, Object> findBids(String homeName) {
         Map<String, Object> result = new HashMap<>();
-        List<JPABid> bids = bidRepo.findAllByHomeName(homeName);
-        if(bids != null) {
+        List<JPABid> jpaBids = bidRepo.findAllByHomeName(homeName);
+        if(jpaBids != null) {
+            List<Bid> bids = jpaBids.stream().map(jpaBid -> jpaBid.parseToBid()).collect(Collectors.toList());
             result.put(DATA, bids);
             result.put(STATUS, SUCCESS);
         } else {

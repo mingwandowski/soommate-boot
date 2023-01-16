@@ -1,14 +1,18 @@
 package com.mingwandowski.soommateboot.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
 
 @Getter
 @Setter
-public class HomeBody {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Home {
 
     private String id = UUID.randomUUID().toString();
     private String homeName;

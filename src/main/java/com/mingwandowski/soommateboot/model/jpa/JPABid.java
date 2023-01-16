@@ -1,6 +1,6 @@
 package com.mingwandowski.soommateboot.model.jpa;
 
-import com.mingwandowski.soommateboot.model.BidBody;
+import com.mingwandowski.soommateboot.model.Bid;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,11 +24,19 @@ public class JPABid {
     private double room4Price;
     private double room5Price;
 
-    public static JPABid parseBid(BidBody bid) {
+    public static JPABid parseBid(Bid bid) {
 
         return new JPABid(
                 bid.getId(), bid.getUserName(), bid.getHomeName(),
                 bid.getRoom1Price(), bid.getRoom2Price(), bid.getRoom3Price(),
                 bid.getRoom4Price(), bid.getRoom5Price());
+    }
+
+    public Bid parseToBid() {
+        return new Bid(
+                this.getId(), this.getUserName(), this.getHomeName(),
+                this.getRoom1Price(), this.getRoom2Price(), this.getRoom3Price(),
+                this.getRoom4Price(), this.getRoom5Price()
+        );
     }
 }

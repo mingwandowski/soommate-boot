@@ -1,7 +1,7 @@
 package com.mingwandowski.soommateboot.service.impl;
 
-import com.mingwandowski.soommateboot.model.BidBody;
-import com.mingwandowski.soommateboot.model.HomeBody;
+import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.model.mongo.MongoBid;
 import com.mingwandowski.soommateboot.model.mongo.MongoHome;
 import com.mingwandowski.soommateboot.repo.mongo.MongoBidRepo;
@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MongoMainServiceImpl implements MainService {
@@ -25,12 +26,12 @@ public class MongoMainServiceImpl implements MainService {
     MongoBidRepo bidRepo;
 
     @Override
-    public Map<String, Object> addHome(HomeBody home) {
+    public Map<String, Object> addHome(Home home) {
         Map<String, Object> result = new HashMap<>();
         MongoHome mongoHome = MongoHome.parseHome(home);
         MongoHome newMongoDBHome = homeRepo.save(mongoHome);
         if(newMongoDBHome != null) {
-            result.put(DATA, newMongoDBHome);
+            result.put(DATA, newMongoDBHome.parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -43,7 +44,7 @@ public class MongoMainServiceImpl implements MainService {
         Map<String, Object> result = new HashMap<>();
         Optional<MongoHome> homeOpt = homeRepo.findByHomeNameAndHomePassword(homeName, password);
         if(homeOpt.isPresent()) {
-            result.put(DATA, homeOpt.get());
+            result.put(DATA, homeOpt.get().parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -52,12 +53,12 @@ public class MongoMainServiceImpl implements MainService {
     }
 
     @Override
-    public Map<String, Object> addBid(BidBody bid) {
+    public Map<String, Object> addBid(Bid bid) {
         Map<String, Object> result = new HashMap<>();
         MongoBid mongoBid = MongoBid.parseBid(bid);
         MongoBid newBid = bidRepo.save(mongoBid);
         if(newBid != null) {
-            result.put(DATA, newBid);
+            result.put(DATA, newBid.parseToBid());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -68,8 +69,9 @@ public class MongoMainServiceImpl implements MainService {
     @Override
     public Map<String, Object> findBids(String homeName) {
         Map<String, Object> result = new HashMap<>();
-        List<MongoBid> bids = bidRepo.findAllByHomeName(homeName);
-        if(bids != null) {
+        List<MongoBid> mongoBids = bidRepo.findAllByHomeName(homeName);
+        if(mongoBids != null) {
+            List<Bid> bids = mongoBids.stream().map(mongoBid -> mongoBid.parseToBid()).collect(Collectors.toList());
             result.put(DATA, bids);
             result.put(STATUS, SUCCESS);
         } else {
