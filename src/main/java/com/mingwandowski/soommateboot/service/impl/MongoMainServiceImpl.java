@@ -1,8 +1,8 @@
 package com.mingwandowski.soommateboot.service.impl;
 
 import com.mingwandowski.soommateboot.model.Bid;
-import com.mingwandowski.soommateboot.model.Home;
-import com.mingwandowski.soommateboot.model.MongoHome;
+import com.mingwandowski.soommateboot.model.HomeBody;
+import com.mingwandowski.soommateboot.model.mongo.MongoHome;
 import com.mingwandowski.soommateboot.repo.MongoHomeRepo;
 import com.mingwandowski.soommateboot.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class MongoMainServiceImpl implements MainService {
     MongoHomeRepo mongoHomeRepo;
 
     @Override
-    public Map<String, Object> addHome(Home home) {
+    public Map<String, Object> addHome(HomeBody home) {
         Map<String, Object> result = new HashMap<>();
         MongoHome mongoHome = MongoHome.parseHome(home);
         MongoHome newMongoDBHome = mongoHomeRepo.save(mongoHome);

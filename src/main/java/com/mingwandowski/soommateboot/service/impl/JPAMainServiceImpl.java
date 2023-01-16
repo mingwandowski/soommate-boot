@@ -1,8 +1,9 @@
 package com.mingwandowski.soommateboot.service.impl;
 
 import com.mingwandowski.soommateboot.model.Bid;
-import com.mingwandowski.soommateboot.model.Home;
+import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.Result;
+import com.mingwandowski.soommateboot.model.jpa.JPAHome;
 import com.mingwandowski.soommateboot.repo.HomeRepo;
 import com.mingwandowski.soommateboot.repo.BidRepo;
 import com.mingwandowski.soommateboot.service.MainService;
@@ -21,11 +22,12 @@ public class JPAMainServiceImpl implements MainService {
     @Autowired
     BidRepo bidRepo;
 
-    public Map<String, Object> addHome(Home home) {
+    public Map<String, Object> addHome(HomeBody home) {
         Map<String, Object> result = new HashMap<>();
-        Home newHome = homeRepo.save(home);
-        if(newHome != null) {
-            result.put(DATA, newHome);
+        JPAHome jpaHome = JPAHome.parseHome(home);
+        JPAHome newJPAHome = homeRepo.save(jpaHome);
+        if(newJPAHome != null) {
+            result.put(DATA, newJPAHome);
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
@@ -35,7 +37,7 @@ public class JPAMainServiceImpl implements MainService {
 
     public Map<String, Object> signInHome(String homeName, String password) {
         Map<String, Object> result = new HashMap<>();
-        Optional<Home> homeOpt = homeRepo.findByHomeNameAndHomePassword(homeName, password);
+        Optional<JPAHome> homeOpt = homeRepo.findByHomeNameAndHomePassword(homeName, password);
         if(homeOpt.isPresent()) {
             result.put(DATA, homeOpt.get());
             result.put(STATUS, SUCCESS);
@@ -72,7 +74,7 @@ public class JPAMainServiceImpl implements MainService {
     public Map<String, Object> calculateResult(String homeName) {
         Map<String, Object> resultMap = new HashMap<>();
         List<Bid> bidList = bidRepo.findAllByHomeName(homeName);
-        Home home = homeRepo.findByHomeName(homeName);
+        JPAHome home = homeRepo.findByHomeName(homeName);
 
         // create result and variables
         Result result = new Result();

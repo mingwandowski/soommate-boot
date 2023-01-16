@@ -1,13 +1,13 @@
 package com.mingwandowski.soommateboot.repo;
 
-import com.mingwandowski.soommateboot.model.Home;
+import com.mingwandowski.soommateboot.model.jpa.JPAHome;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface HomeRepo extends JpaRepository<Home, Long> {
+public interface HomeRepo extends JpaRepository<JPAHome, Long> {
 
-    Optional<Home> findByHomeNameAndHomePassword(String homeName, String password);
+    Optional<JPAHome> findByHomeNameAndHomePassword(String homeName, String password);
 
-    Home findByHomeName(String homeName);
+    JPAHome findByHomeName(String homeName);
 }

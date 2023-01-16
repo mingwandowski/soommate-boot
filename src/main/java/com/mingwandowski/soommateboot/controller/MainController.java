@@ -1,6 +1,6 @@
 package com.mingwandowski.soommateboot.controller;
 
-import com.mingwandowski.soommateboot.model.Home;
+import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.Bid;
 import com.mingwandowski.soommateboot.service.impl.JPAMainServiceImpl;
 import com.mingwandowski.soommateboot.service.MainService;
@@ -36,13 +36,13 @@ public class MainController {
     }
 
     @PostMapping("/addHome")
-    public ResponseEntity<Map<String, Object>> addHome(@RequestBody Home home) {
+    public ResponseEntity<Map<String, Object>> addHome(@RequestBody HomeBody home) {
         Map<String, Object> resultMap = getMainService().addHome(home);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 
     @PostMapping("/signInHome")
-    public ResponseEntity<Map<String, Object>> signInHome(@RequestBody Home signInHomeBody) {
+    public ResponseEntity<Map<String, Object>> signInHome(@RequestBody HomeBody signInHomeBody) {
         Map<String, Object> resultMap = getMainService().signInHome(signInHomeBody.getHomeName(), signInHomeBody.getHomePassword());
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }

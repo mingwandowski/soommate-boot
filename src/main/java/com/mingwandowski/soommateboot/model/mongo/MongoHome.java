@@ -1,5 +1,6 @@
-package com.mingwandowski.soommateboot.model;
+package com.mingwandowski.soommateboot.model.mongo;
 
+import com.mingwandowski.soommateboot.model.HomeBody;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,7 +27,7 @@ public class MongoHome {
     private String room4Name;
     private String room5Name;
 
-    public static MongoHome parseHome(Home home) {
+    public static MongoHome parseHome(HomeBody home) {
 
         return new MongoHome(
                 UUID.randomUUID().toString(), home.getHomeName(), home.getHomePassword(), home.getNumOfRooms(),

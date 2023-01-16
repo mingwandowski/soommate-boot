@@ -1,6 +1,6 @@
 package com.mingwandowski.soommateboot.repo;
 
-import com.mingwandowski.soommateboot.model.MongoHome;
+import com.mingwandowski.soommateboot.model.mongo.MongoHome;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

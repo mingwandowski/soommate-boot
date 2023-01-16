@@ -1,22 +1,13 @@
 package com.mingwandowski.soommateboot.model;
 
-import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 @Getter
 @Setter
-public class Home {
+public class HomeBody {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String homeName;
     private String homePassword;
