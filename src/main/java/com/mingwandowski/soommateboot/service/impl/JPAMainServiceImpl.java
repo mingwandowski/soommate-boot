@@ -4,8 +4,8 @@ import com.mingwandowski.soommateboot.model.Bid;
 import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.Result;
 import com.mingwandowski.soommateboot.model.jpa.JPAHome;
-import com.mingwandowski.soommateboot.repo.HomeRepo;
-import com.mingwandowski.soommateboot.repo.BidRepo;
+import com.mingwandowski.soommateboot.repo.jpa.JPAHomeRepo;
+import com.mingwandowski.soommateboot.repo.jpa.JPABidRepo;
 import com.mingwandowski.soommateboot.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,10 @@ import java.util.*;
 public class JPAMainServiceImpl implements MainService {
 
     @Autowired
-    HomeRepo homeRepo;
+    JPAHomeRepo homeRepo;
 
     @Autowired
-    BidRepo bidRepo;
+    JPABidRepo bidRepo;
 
     public Map<String, Object> addHome(HomeBody home) {
         Map<String, Object> result = new HashMap<>();

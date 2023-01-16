@@ -3,7 +3,7 @@ package com.mingwandowski.soommateboot.service.impl;
 import com.mingwandowski.soommateboot.model.Bid;
 import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.mongo.MongoHome;
-import com.mingwandowski.soommateboot.repo.MongoHomeRepo;
+import com.mingwandowski.soommateboot.repo.mongo.MongoHomeRepo;
 import com.mingwandowski.soommateboot.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

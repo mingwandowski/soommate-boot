@@ -1,4 +1,4 @@
-package com.mingwandowski.soommateboot.repo;
+package com.mingwandowski.soommateboot.repo.mongo;
 
 import com.mingwandowski.soommateboot.model.mongo.MongoHome;
 import org.springframework.data.mongodb.repository.MongoRepository;
