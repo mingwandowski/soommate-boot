@@ -1,6 +1,6 @@
 package com.mingwandowski.soommateboot.service;
 
-import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.BidBody;
 import com.mingwandowski.soommateboot.model.HomeBody;
 
 import java.util.Map;
@@ -16,7 +16,7 @@ public interface MainService {
 
     Map<String, Object> signInHome(String homeName, String password);
 
-    Map<String, Object> addBid(Bid bid);
+    Map<String, Object> addBid(BidBody bid);
 
     Map<String, Object> findBids(String homeName);
 

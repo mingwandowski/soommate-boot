@@ -1,6 +1,6 @@
 package com.mingwandowski.soommateboot.service.impl;
 
-import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.BidBody;
 import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.mongo.MongoHome;
 import com.mingwandowski.soommateboot.repo.mongo.MongoHomeRepo;
@@ -46,7 +46,7 @@ public class MongoMainServiceImpl implements MainService {
     }
 
     @Override
-    public Map<String, Object> addBid(Bid bid) {
+    public Map<String, Object> addBid(BidBody bid) {
         return null;
     }
 

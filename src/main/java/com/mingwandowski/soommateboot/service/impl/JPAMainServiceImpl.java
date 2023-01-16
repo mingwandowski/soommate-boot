@@ -1,8 +1,9 @@
 package com.mingwandowski.soommateboot.service.impl;
 
-import com.mingwandowski.soommateboot.model.Bid;
+import com.mingwandowski.soommateboot.model.BidBody;
 import com.mingwandowski.soommateboot.model.HomeBody;
 import com.mingwandowski.soommateboot.model.Result;
+import com.mingwandowski.soommateboot.model.jpa.JPABid;
 import com.mingwandowski.soommateboot.model.jpa.JPAHome;
 import com.mingwandowski.soommateboot.repo.jpa.JPAHomeRepo;
 import com.mingwandowski.soommateboot.repo.jpa.JPABidRepo;
@@ -47,9 +48,10 @@ public class JPAMainServiceImpl implements MainService {
         return result;
     }
 
-    public Map<String, Object> addBid(Bid bid) {
+    public Map<String, Object> addBid(BidBody bid) {
         Map<String, Object> result = new HashMap<>();
-        Bid newBid = bidRepo.save(bid);
+        JPABid jpaBid = JPABid.parseBid(bid);
+        JPABid newBid = bidRepo.save(jpaBid);
         if(newBid != null) {
             result.put(DATA, newBid);
             result.put(STATUS, SUCCESS);
@@ -61,7 +63,7 @@ public class JPAMainServiceImpl implements MainService {
 
     public Map<String, Object> findBids(String homeName) {
         Map<String, Object> result = new HashMap<>();
-        List<Bid> bids = bidRepo.findAllByHomeName(homeName);
+        List<JPABid> bids = bidRepo.findAllByHomeName(homeName);
         if(bids != null) {
             result.put(DATA, bids);
             result.put(STATUS, SUCCESS);
@@ -73,14 +75,14 @@ public class JPAMainServiceImpl implements MainService {
 
     public Map<String, Object> calculateResult(String homeName) {
         Map<String, Object> resultMap = new HashMap<>();
-        List<Bid> bidList = bidRepo.findAllByHomeName(homeName);
+        List<JPABid> bidList = bidRepo.findAllByHomeName(homeName);
         JPAHome home = homeRepo.findByHomeName(homeName);
 
         // create result and variables
         Result result = new Result();
         result.setHomeName(homeName);
 
-        Bid[] bids = bidList.toArray(new Bid[0]);
+        JPABid[] bids = bidList.toArray(new JPABid[0]);
         double totalPrice = home.getTotalPrice();
         int numOfRooms = home.getNumOfRooms();
 
@@ -99,7 +101,7 @@ public class JPAMainServiceImpl implements MainService {
         return resultMap;
     }
 
-    private double[][] createBidTable(int numOfRooms, Bid[] bids) {
+    private double[][] createBidTable(int numOfRooms, JPABid[] bids) {
         double[][] res = new double[numOfRooms][numOfRooms];
         for(int i = 0; i < numOfRooms; i++){
             res[i][0] = bids[i].getRoom1Price();
@@ -136,7 +138,7 @@ public class JPAMainServiceImpl implements MainService {
         }
     }
 
-    private void findBestCombination(Result result, Bid[] bids, double totalPrice, int numOfRooms, double[][] bidTable, List<Integer[]> combinations) {
+    private void findBestCombination(Result result, JPABid[] bids, double totalPrice, int numOfRooms, double[][] bidTable, List<Integer[]> combinations) {
 
         double maxPrice = 0.0;
         double averageSaved = 0.0;
