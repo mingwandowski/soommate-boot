@@ -12,7 +12,7 @@ import java.util.Map;
 
 public abstract class ParentMainService implements MainService {
 
-    public void calculate(Map<String, Object> resultMap, Bid[] bids, Home home) {
+    public void calculate(Map<String, Object> resultMap, List<Bid> bidList, Home home) {
 
         // create result and variables
         Result result = new Result();
@@ -20,6 +20,8 @@ public abstract class ParentMainService implements MainService {
 
         double totalPrice = home.getTotalPrice();
         int numOfRooms = home.getNumOfRooms();
+
+        Bid[] bids = bidList.toArray(new Bid[0]);
 
         // init bidTable (bidTable[bidder][priceOfRoom])
         double[][] bidTable = createBidTable(numOfRooms, bids);

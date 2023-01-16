@@ -79,9 +79,7 @@ public class JPAMainServiceImpl extends ParentMainService implements MainService
         List<Bid> bidList = jpaBidList.stream().map(jpaBid -> jpaBid.parseToBid()).collect(Collectors.toList());
         Home home = homeRepo.findByHomeName(homeName).parseToHome();
 
-        Bid[] bids = bidList.toArray(new Bid[0]);
-
-        calculate(resultMap, bids, home);
+        calculate(resultMap, bidList, home);
 
         return resultMap;
     }

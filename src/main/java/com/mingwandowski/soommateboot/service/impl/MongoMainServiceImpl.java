@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MongoMainServiceImpl implements MainService {
+public class MongoMainServiceImpl extends ParentMainService implements MainService {
 
     @Autowired
     MongoHomeRepo homeRepo;
@@ -82,6 +82,13 @@ public class MongoMainServiceImpl implements MainService {
 
     @Override
     public Map<String, Object> calculateResult(String homeName) {
-        return null;
+        Map<String, Object> resultMap = new HashMap<>();
+        List<MongoBid> mongoBidList = bidRepo.findAllByHomeName(homeName);
+        List<Bid> bidList = mongoBidList.stream().map(mongoBid -> mongoBid.parseToBid()).collect(Collectors.toList());
+        Home home = homeRepo.findByHomeName(homeName).parseToHome();
+
+        calculate(resultMap, bidList, home);
+
+        return resultMap;
     }
 }
