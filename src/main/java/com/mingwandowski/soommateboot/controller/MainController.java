@@ -2,9 +2,6 @@ package com.mingwandowski.soommateboot.controller;
 
 import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.model.Bid;
-import com.mingwandowski.soommateboot.model.MongoHome;
-import com.mingwandowski.soommateboot.repo.HomeRepo;
-import com.mingwandowski.soommateboot.repo.MongoHomeRepo;
 import com.mingwandowski.soommateboot.service.impl.JPAMainServiceImpl;
 import com.mingwandowski.soommateboot.service.MainService;
 import com.mingwandowski.soommateboot.service.impl.MongoMainServiceImpl;
@@ -14,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,16 +18,10 @@ import java.util.Map;
 public class MainController {
 
     @Autowired
-    HomeRepo homeRepo;
-
-    @Autowired
     JPAMainServiceImpl JPAMainService;
 
     @Autowired
     MongoMainServiceImpl mongoMainService;
-
-    @Autowired
-    MongoHomeRepo mongoHomeRepo;
 
     @Value("${db.source}")
     String dataSource;
@@ -43,12 +33,6 @@ public class MainController {
             return mongoMainService;
         }
         return null;
-    }
-
-    @GetMapping("/getHomes")
-    public ResponseEntity<List<Home>> getHomes() {
-        List<Home> homes = homeRepo.findAll();
-        return new ResponseEntity<>(homes, HttpStatus.OK);
     }
 
     @PostMapping("/addHome")
@@ -81,9 +65,4 @@ public class MainController {
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 
-    @GetMapping("test")
-    public ResponseEntity<List<MongoHome>> test() {
-        List<MongoHome> resultMap = mongoHomeRepo.findAll();
-        return new ResponseEntity<>(resultMap, HttpStatus.OK);
-    }
 }
