@@ -1,5 +1,6 @@
 package com.mingwandowski.soommateboot.model.mongo;
 
+import com.mingwandowski.soommateboot.model.BidBody;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,4 +23,12 @@ public class MongoBid {
     private double room3Price;
     private double room4Price;
     private double room5Price;
+
+    public static MongoBid parseBid(BidBody bid) {
+
+        return new MongoBid(
+                bid.getId(), bid.getUserName(), bid.getHomeName(),
+                bid.getRoom1Price(), bid.getRoom2Price(), bid.getRoom3Price(),
+                bid.getRoom4Price(), bid.getRoom5Price());
+    }
 }
