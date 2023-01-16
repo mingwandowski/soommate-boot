@@ -10,18 +10,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class MongoMainServiceImpl implements MainService {
 
     @Autowired
-    MongoHomeRepo mongoHomeRepo;
+    MongoHomeRepo homeRepo;
 
     @Override
     public Map<String, Object> addHome(HomeBody home) {
         Map<String, Object> result = new HashMap<>();
         MongoHome mongoHome = MongoHome.parseHome(home);
-        MongoHome newMongoDBHome = mongoHomeRepo.save(mongoHome);
+        MongoHome newMongoDBHome = homeRepo.save(mongoHome);
         if(newMongoDBHome != null) {
             result.put(DATA, newMongoDBHome);
             result.put(STATUS, SUCCESS);
@@ -33,7 +34,15 @@ public class MongoMainServiceImpl implements MainService {
 
     @Override
     public Map<String, Object> signInHome(String homeName, String password) {
-        return null;
+        Map<String, Object> result = new HashMap<>();
+        Optional<MongoHome> homeOpt = homeRepo.findByHomeNameAndHomePassword(homeName, password);
+        if(homeOpt.isPresent()) {
+            result.put(DATA, homeOpt.get());
+            result.put(STATUS, SUCCESS);
+        } else {
+            result.put(STATUS, FAILED);
+        }
+        return result;
     }
 
     @Override
