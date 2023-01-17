@@ -12,9 +12,9 @@ The basic idea is that you can create a "Home" with different "rooms" to be chos
 - back-end: Spring Boot
 - database: MySQL / MongoDB
 
-1. Clone the project to local device. 
-2. For the front-end part, use `npm start` to start React.js server on localhost:3000 (prerequest: node, npm)
-3. For the back-end, you can configure the data source in the file application.properties. You can choose either `db.source=mongodb` or `db.source=jpa`. For JPA, you only have to `create database soommate` in your MySQL. (Remember to change config such as username and password for MySQL or MongoDB)
+1. Clone the project to your local device.
+2. For the front-end part, use `npm start` to start the React server on localhost:3000 (pre-request: node, npm)
+3. For the back-end, you can configure the data source in the file application.properties. You can choose either `db.source=mongodb` or `db.source=jpa`. For JPA, you only have to `create database soommate` in your MySQL. (Remember to change configs such as username and password for MySQL or MongoDB)
 
 ## Demo
 
@@ -22,11 +22,11 @@ There is a demo account for you to see how it worked.
 - home name: big bang
 - password: 123
 
-Let's say **Sheldon** and **Leonard** are moving to a new apartment with a total price $1000. Sheldon really want to live in the master bedroom.
+Let's say **Sheldon** and **Leonard** are moving to a new apartment with a total price of $1000. Sheldon really wants to live in the master bedroom.
 
-Here is their bids:
+Here are their bids:
 
-| userName | master bedroom | small bedroom |
+| tenants | master bedroom | small bedroom |
 |----------|----------------|---------------|
 | Sheldon  | 700            | 300           |
 | Leonard  | 600            | 400           |
