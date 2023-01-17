@@ -29,7 +29,7 @@ function HomeSignUp(props) {
 	}
 
 	async function addHome(home) {
-		const url = `http://localhost:8080/addHome`;
+		const url = `${global.config.BACKEND_URL}/addHome`;
 		console.log("addHome");
 		try {
 			const config = {

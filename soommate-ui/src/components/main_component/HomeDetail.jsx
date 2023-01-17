@@ -12,7 +12,7 @@ function HomeDetail(props) {
     }, [props.homeInfo.homeName, props.allBidsChangeFlag]);
 
     async function getBids(homeName) {
-        const url = `http://localhost:8080/getBids?homeName=${homeName}`;
+        const url = `${global.config.BACKEND_URL}/getBids?homeName=${homeName}`;
         try {
             const res = await axios.get(url);
             if(res?.data?.status === 'success') {
@@ -26,7 +26,7 @@ function HomeDetail(props) {
     }
 
     async function calculateResult(homeName) {
-        const url = `http://localhost:8080/calculate?homeName=${homeName}`;
+        const url = `${global.config.BACKEND_URL}/calculate?homeName=${homeName}`;
         try {
             const res = await axios.get(url);
             if(res?.data?.status === 'success') {
