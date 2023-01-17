@@ -2,9 +2,8 @@ package com.mingwandowski.soommateboot.model.mongo;
 
 import com.mingwandowski.soommateboot.model.Bid;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.Id;
 
 @AllArgsConstructor
 @NoArgsConstructor

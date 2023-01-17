@@ -2,7 +2,6 @@ package com.mingwandowski.soommateboot.controller;
 
 import com.mingwandowski.soommateboot.model.Home;
 import com.mingwandowski.soommateboot.model.Bid;
-import com.mingwandowski.soommateboot.service.impl.JPAMainServiceImpl;
 import com.mingwandowski.soommateboot.service.MainService;
 import com.mingwandowski.soommateboot.service.impl.MongoMainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +17,13 @@ import java.util.Map;
 public class MainController {
 
     @Autowired
-    JPAMainServiceImpl JPAMainService;
-
-    @Autowired
     MongoMainServiceImpl mongoMainService;
 
     @Value("${db.source}")
     String dataSource;
 
     private MainService getMainService() {
-        if("jpa".equals(dataSource)) {
-            return JPAMainService;
-        } else if("mongodb".equals(dataSource)) {
+        if("mongodb".equals(dataSource)) {
             return mongoMainService;
         }
         return null;
