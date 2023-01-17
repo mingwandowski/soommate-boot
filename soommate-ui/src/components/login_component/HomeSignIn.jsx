@@ -22,8 +22,7 @@ function HomeSignIn(props) {
 	}
 
 	async function signInHome(signInHome) {
-		const url = `http://localhost:8080/signInHome`;
-		console.log("signInHome");
+		const url = `${global.config.BACKEND_URL}/signInHome`;
 		try {
 			const config = {
 				headers: {
