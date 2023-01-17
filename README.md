@@ -26,10 +26,10 @@ Let's say **Sheldon** and **Leonard** are moving to a new apartment with a total
 
 Here are their bids:
 
-| tenants | master bedroom | small bedroom |
-|----------|----------------|---------------|
-| Sheldon  | 700            | 300           |
-| Leonard  | 600            | 400           |
+| tenants   | master bedroom | small bedroom |
+|-----------|----------------|---------------|
+| Sheldon   | 700            | 300           |
+| Leonard   | 600            | 400           |
 
 Sign Up Home
 ![sign_up](materials/sign_up.png)
