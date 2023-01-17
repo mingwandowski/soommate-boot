@@ -46,7 +46,7 @@ function RoomBid(props) {
 	}
 
 	async function addBid(bid) {
-		const url = `${global.config.BACKEND_URL}`;
+		const url = `${global.config.BACKEND_URL}/addBid`;
 		console.log("addBid");
 		try {
 			const config = {
