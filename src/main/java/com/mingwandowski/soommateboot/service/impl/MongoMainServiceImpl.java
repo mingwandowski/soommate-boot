@@ -30,28 +30,21 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
         Map<String, Object> result = new HashMap<>();
         MongoHome mongoHome = MongoHome.parseHome(home);
         if(home.getHomeName() == null || home.getHomeName().isEmpty()) {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "please enter home name");
-            return result;
+            return failedResult(result, "please enter home name");
         }
         MongoHome foundHome = homeRepo.findByHomeName(home.getHomeName());
         if(foundHome != null) {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "already have a existing home with same name, please try another one");
-            return result;
+            return failedResult(result, "already have a existing home with same name, please try another one");
         }
         if(foundHome.getHomePassword() == null || foundHome.getHomePassword().isEmpty()) {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "should have a password");
-            return result;
+            return failedResult(result, "should have a password");
         }
         MongoHome newMongoDBHome = homeRepo.save(mongoHome);
         if(newMongoDBHome != null) {
             result.put(DATA, newMongoDBHome.parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "save failed");
+            return failedResult(result, "save failed");
         }
         return result;
     }
@@ -64,8 +57,7 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
             result.put(DATA, homeOpt.get().parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "home name or password incorrect, please try again");
+            return failedResult(result, "home name or password incorrect, please try again");
         }
         return result;
     }
@@ -77,23 +69,18 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
         String homeName = mongoBid.getHomeName();
         MongoHome foundHome = homeRepo.findByHomeName(homeName);
         if(foundHome == null) {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "error, please login again");
-            return result;
+            return failedResult(result, "error, please login again");
         }
         List<MongoBid> mongoBids = bidRepo.findAllByHomeName(homeName);
         if(mongoBids.size() >= foundHome.getNumOfRooms()) {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "sorry, no more rooms for a new roommate");
-            return result;
+            return failedResult(result, "sorry, no more rooms for a new roommate");
         }
         MongoBid newBid = bidRepo.save(mongoBid);
         if(newBid != null) {
             result.put(DATA, newBid.parseToBid());
             result.put(STATUS, SUCCESS);
         } else {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "add bid failed");
+            return failedResult(result, "add bid failed");
         }
         return result;
     }
@@ -107,8 +94,7 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
             result.put(DATA, bids);
             result.put(STATUS, SUCCESS);
         } else {
-            result.put(STATUS, FAILED);
-            result.put(MSG, "find bids error");
+            return failedResult(result, "find bids error");
         }
         return result;
     }
@@ -123,5 +109,11 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
         calculate(resultMap, bidList, home);
 
         return resultMap;
+    }
+
+    private Map<String, Object> failedResult(Map<String, Object> result, String massage) {
+        result.put(STATUS, FAILED);
+        result.put(MSG, massage);
+        return result;
     }
 }
