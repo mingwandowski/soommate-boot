@@ -34,6 +34,8 @@ function HomeSignIn(props) {
 			if(res?.data?.status === 'success') {
 				const resultHome = res.data.data;
 				props.setHomeInfo(resultHome);
+			} else if(res?.data?.status === 'failed') {
+				alert(res?.data?.msg);
 			} else {
 				console.log(res);
 			}

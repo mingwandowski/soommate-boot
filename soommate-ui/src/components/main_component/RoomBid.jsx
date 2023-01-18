@@ -61,6 +61,8 @@ function RoomBid(props) {
 				console.log(newBid);
 				resetBid();
 				props.setAllBidsChangeFlag(prev => prev + 1);
+			} else if(res?.data?.status === 'failed') {
+				alert(res?.data?.msg);
 			} else {
 				console.log(res);
 			}

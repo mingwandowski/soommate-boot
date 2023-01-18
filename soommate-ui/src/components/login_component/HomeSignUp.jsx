@@ -42,6 +42,8 @@ function HomeSignUp(props) {
 			if(res?.data?.status === 'success') {
 				const newHome = res.data.data;
 				props.setHomeInfo(newHome);
+			} else if(res?.data?.status === 'failed') {
+				alert(res?.data?.msg);
 			} else {
 				console.log(res);
 			}

@@ -7,7 +7,9 @@ function HomeDetail(props) {
     const [bids, setBids] = React.useState([]);
 
     React.useEffect(() => {
-        getBids(props.homeInfo.homeName)
+        if(props.homeInfo.homeName && props.homeInfo.homeName !== '') {
+            getBids(props.homeInfo.homeName);
+        }
 
     }, [props.homeInfo.homeName, props.allBidsChangeFlag]);
 
