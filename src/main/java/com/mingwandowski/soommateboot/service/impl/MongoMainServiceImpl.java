@@ -29,12 +29,24 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
     public Map<String, Object> addHome(Home home) {
         Map<String, Object> result = new HashMap<>();
         MongoHome mongoHome = MongoHome.parseHome(home);
+        if(home.getHomeName() == null || home.getHomeName().isEmpty()) {
+            result.put(STATUS, FAILED);
+            result.put(MSG, "please enter home name");
+            return result;
+        }
+        MongoHome foundHome = homeRepo.findByHomeName(home.getHomeName());
+        if(foundHome != null) {
+            result.put(STATUS, FAILED);
+            result.put(MSG, "already have a existing home with same name, please try another one");
+            return result;
+        }
         MongoHome newMongoDBHome = homeRepo.save(mongoHome);
         if(newMongoDBHome != null) {
             result.put(DATA, newMongoDBHome.parseToHome());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
+            result.put(MSG, "save failed");
         }
         return result;
     }

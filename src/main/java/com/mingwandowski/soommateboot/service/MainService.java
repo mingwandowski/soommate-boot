@@ -11,6 +11,7 @@ public interface MainService {
     String STATUS = "status";
     String SUCCESS = "success";
     String FAILED = "failed";
+    String MSG = "msg";
 
     Map<String, Object> addHome(Home home);
 
