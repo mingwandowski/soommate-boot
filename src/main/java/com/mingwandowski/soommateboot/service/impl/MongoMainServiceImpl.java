@@ -60,6 +60,7 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
+            result.put(MSG, "home name or password incorrect, please try again");
         }
         return result;
     }
@@ -68,12 +69,26 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
     public Map<String, Object> addBid(Bid bid) {
         Map<String, Object> result = new HashMap<>();
         MongoBid mongoBid = MongoBid.parseBid(bid);
+        String homeName = mongoBid.getHomeName();
+        MongoHome foundHome = homeRepo.findByHomeName(homeName);
+        if(foundHome != null) {
+            result.put(STATUS, FAILED);
+            result.put(MSG, "error, please login again");
+            return result;
+        }
+        List<MongoBid> mongoBids = bidRepo.findAllByHomeName(homeName);
+        if(mongoBids.size() >= foundHome.getNumOfRooms()) {
+            result.put(STATUS, FAILED);
+            result.put(MSG, "sorry, no more rooms for a new roommate");
+            return result;
+        }
         MongoBid newBid = bidRepo.save(mongoBid);
         if(newBid != null) {
             result.put(DATA, newBid.parseToBid());
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
+            result.put(MSG, "add bid failed");
         }
         return result;
     }
@@ -88,6 +103,7 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
             result.put(STATUS, SUCCESS);
         } else {
             result.put(STATUS, FAILED);
+            result.put(MSG, "find bids error");
         }
         return result;
     }
