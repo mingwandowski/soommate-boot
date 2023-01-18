@@ -71,7 +71,7 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
         MongoBid mongoBid = MongoBid.parseBid(bid);
         String homeName = mongoBid.getHomeName();
         MongoHome foundHome = homeRepo.findByHomeName(homeName);
-        if(foundHome != null) {
+        if(foundHome == null) {
             result.put(STATUS, FAILED);
             result.put(MSG, "error, please login again");
             return result;
