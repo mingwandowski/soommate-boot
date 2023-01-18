@@ -8,6 +8,7 @@ function HomeSignUp(props) {
 	const defaultHome = {
 		homeName: "",
 		homePassword: "",
+		retypePassword: "",
 		numOfRooms: 2,
 		totalPrice: 0,
 		room1Name: "",
@@ -53,8 +54,11 @@ function HomeSignUp(props) {
 	}
 
 	function clickSignUp(event) {
-		console.log(home);
-		addHome(home);
+		if(home.homePassword !== home.retypePassword) {
+			alert('confirm passward does not match');
+		} else {
+			addHome(home);
+		}
 
 		event.preventDefault();
 	}
@@ -68,7 +72,7 @@ function HomeSignUp(props) {
 				</div>
 				<div className="form-group">
 					<input className="form-control" onChange={changeInput} type="password" name="homePassword" placeholder="Create a Password" required />
-					<input className="form-control" type="password" placeholder="Confirm your Password" required />
+					<input className="form-control" onChange={changeInput} type="password" name="retypePassword" placeholder="Confirm your Password" required />
 				</div>
 				<div className="form-group">
 					<input className="form-control" onChange={changeInput} type="text" name="totalPrice" placeholder="Total Price" required="" />
