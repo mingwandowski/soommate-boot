@@ -40,6 +40,11 @@ public class MongoMainServiceImpl extends ParentMainService implements MainServi
             result.put(MSG, "already have a existing home with same name, please try another one");
             return result;
         }
+        if(foundHome.getHomePassword() == null || foundHome.getHomePassword().isEmpty()) {
+            result.put(STATUS, FAILED);
+            result.put(MSG, "should have a password");
+            return result;
+        }
         MongoHome newMongoDBHome = homeRepo.save(mongoHome);
         if(newMongoDBHome != null) {
             result.put(DATA, newMongoDBHome.parseToHome());
