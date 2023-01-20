@@ -29,6 +29,11 @@ public class MainController {
         return null;
     }
 
+    @GetMapping("/alive")
+    public ResponseEntity<String> alive() {
+        return new ResponseEntity<>("alive~", HttpStatus.OK);
+    }
+
     @PostMapping("/addHome")
     public ResponseEntity<Map<String, Object>> addHome(@RequestBody Home home) {
         Map<String, Object> resultMap = getMainService().addHome(home);
