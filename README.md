@@ -1,4 +1,5 @@
-## Soommate: A Roommate Rent Distribution Application: https://mingwandowski.github.io/soommate-boot/
+## Soommate: A Roommate Rent Distribution Application: 
+Demo Link: https://mingwandowski.github.io/soommate-boot/
 
 Soommate is a rent distribution web application based on roommates’ bids for each room.
 
