@@ -48,7 +48,7 @@ function App() {
             </button>
           </div>
           <div className='signin-signup col-lg-6 mx-auto'>
-            {authStep === 'signIn' && (<HomeSignIn setHomeInfo={setHomeInfo} setOperation={setHomeOperation} />)}
+            {authStep === 'signIn' && (<HomeSignIn setHomeInfo={setHomeInfo} setOperation={setAuthStep} />)}
             {authStep === 'signUp' && (<HomeSignUp setHomeInfo={setHomeInfo} />)}
           </div>
         </div>
