@@ -1,18 +1,61 @@
-.sign-up-form {
-    text-align: left;
-    width: 18rem;
-    margin: auto;
-    margin-top: 1rem;
-    min-height: 28rem;
+.card-registration {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
 }
 
-.sign-up-form input {
-    margin: 4px 0px;
-    font-size: 18px;
-}
-
-.sign-up-form button {
+.card-registration h2 {
     text-align: center;
-    margin: 1rem 0rem;
+    color: #3C2A21;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.sign-up-form {
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-control {
+    margin: 8px 0;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #85586F;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3C2A21;
+    box-shadow: 0 0 0 2px rgba(60,42,33,0.2);
+}
+
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, #85586F 0%, #3C2A21 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.signup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(60,42,33,0.2);
+}
+
+.form-group label {
+    color: #85586F;
+    font-weight: 500;
 }

@@ -43,7 +43,7 @@ function HomeSignIn(props) {
 	}
 
 	function clickSignIn(event) {
-		console.log(home);
+		// console.log(home);
 		signInHome(home);
 
 		event.preventDefault();

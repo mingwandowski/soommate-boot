@@ -1,10 +1,14 @@
 header {
-    /* background-color: #85586F; */
-    background-color: #3C2A21;
+    background: linear-gradient(135deg, #85586F 0%, #3C2A21 100%);
+    padding: 1rem 0;
 }
 
 header h1 {
     margin: 0;
     padding: 8px;
     color: #E5E5CB;
+    font-weight: 600;
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: 1px;
 }

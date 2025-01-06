@@ -1,39 +1,93 @@
 .App {
-  /* background-color: #F8EDE3; */
-  background-color: #D0B8A8;
+  background-color: #F8EDE3;
+  min-height: 100vh;
+}
+
+.main-tabs {
+  width: 90%;
+  max-width: 1400px;
+  margin: 2rem auto 1rem;
+}
+
+.intro-component {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.operation-component {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .login-component {
-  width: 70%;
-  text-align: center;
-  margin: auto;
-}
-
-.introduction {
-  background-color: #D0B8A8;
-  /* background-color: #D0B8A8; */
-  padding: 1em;
+  margin: 2rem auto;
 }
 
 .signin-signup {
-  /* background-color: #DFD3C3; */
-  background-color: #D0B8A8;
-  padding: 1em;
-  min-height: 30em;
+  background-color: #DFD3C3;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  width: 100%;
 }
 
 .main-component {
-  width: 70%;
-  text-align: center;
-  margin: auto;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.home-detail {
-  background-color: #D0B8A8;
-  padding: 1em;
+.home-detail, .room-bid {
+  flex: 1;
+  background-color: #DFD3C3;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
 }
 
-.room-bid {
-  background-color: #D0B8A8;
-  padding: 1em;
+@media (max-width: 992px) {
+  .main-component {
+    flex-direction: column;
+  }
+  
+  .home-detail, .room-bid {
+    width: 100%;
+  }
+}
+
+.auth-tabs {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.auth-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.auth-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.auth-btn.active {
+  color: #3C2A21;
+  font-weight: 600;
+  border-bottom: 2px solid #85586F;
+}
+
+.auth-btn:hover:not(.active) {
+  color: #3C2A21;
 }

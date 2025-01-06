@@ -10,3 +10,34 @@
 .nav {
     --bs-nav-link-hover-color: gray;
 }
+
+.nav-tabs {
+  border: none;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.custom.nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3C2A21;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(223, 211, 195, 0.5);
+}
+
+.custom.nav-link.active {
+  color: white;
+  background: linear-gradient(135deg, #85586F 0%, #3C2A21 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(60,42,33,0.2);
+}
+
+.custom.nav-link:hover:not(.active) {
+  background: rgba(223, 211, 195, 0.8);
+  transform: translateY(-2px);
+}

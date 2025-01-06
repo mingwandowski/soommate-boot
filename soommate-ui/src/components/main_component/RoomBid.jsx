@@ -18,6 +18,8 @@ function RoomBid(props) {
 	const [bid, setBid] = React.useState(defaultBid);
 	const [priceSum, setPriceSum] = React.useState(0);
 
+	const canShowResult = props.canShowResult;
+
 	function calculatePriceSum(tmpBid) {
 		var sum = 0;
 		sum += Number(tmpBid.room1Price);
@@ -46,8 +48,7 @@ function RoomBid(props) {
 	}
 
 	async function addBid(bid) {
-		const url = `${global.config.BACKEND_URL}`;
-		console.log("addBid");
+		const url = `${global.config.BACKEND_URL}/addBid`;
 		try {
 			const config = {
 				headers: {
@@ -58,7 +59,6 @@ function RoomBid(props) {
 			const res = await axios.post(url, bid, config);
 			if(res?.data?.status === 'success') {
 				const newBid = res.data.data;
-				console.log(newBid);
 				resetBid();
 				props.setAllBidsChangeFlag(prev => prev + 1);
 			} else {
@@ -83,8 +83,22 @@ function RoomBid(props) {
 
     return (
 		<div className="card card-registration my-4">
-			<form className="bid-form">
+			<div className="back-home-container">
+				<button 
+					className="back-home-button"
+					onClick={() => window.location.reload()}
+				>
+					<i className="fas fa-arrow-left"></i>
+					Back to Home
+				</button>
+			</div>
+			<form className={`bid-form ${canShowResult ? 'disabled' : ''}`}>
 				<h2>Give your Bid</h2>
+				{canShowResult && (
+					<div className="bid-complete-message">
+						Enough bids have been collected. You can now view the results!
+					</div>
+				)}
 				<br />
 				<div className="form-group">
 					<input className="form-control" type="text" name="userName" value={bid.userName} placeholder="Your Name" required onChange={changeInput} />
@@ -109,9 +123,17 @@ function RoomBid(props) {
 					<label>{homeInfo.room5Name}</label>
 					<input className="form-control" type="number" name="room5Price" value={bid.room5Price} placeholder="room5 Price" onChange={changeInput} />
 				</div>
-				<h4>Sum of Prices Now: {priceSum}</h4>
-				<button className="btn btn-secondary btn-block reset-button" type="reset" onClick={resetBid}>Reset</button>
-				<button className="btn btn-primary btn-block submit-button" type="button" onClick={clickSubmit}>Submit</button>
+				<div className="price-sum">
+					<h4>Sum of Prices Now: {priceSum}</h4>
+				</div>
+				<div className="button-container">
+					<button className="btn btn-secondary reset-button" type="reset" onClick={resetBid}>
+						Reset
+					</button>
+					<button className="btn btn-primary submit-button" type="button" onClick={clickSubmit}>
+						Submit
+					</button>
+				</div>
 			</form>
 		</div>
     );

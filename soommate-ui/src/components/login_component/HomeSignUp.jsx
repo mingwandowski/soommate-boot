@@ -30,7 +30,6 @@ function HomeSignUp(props) {
 
 	async function addHome(home) {
 		const url = `${global.config.BACKEND_URL}/addHome`;
-		console.log("addHome");
 		try {
 			const config = {
 				headers: {
@@ -51,7 +50,6 @@ function HomeSignUp(props) {
 	}
 
 	function clickSignUp(event) {
-		console.log(home);
 		addHome(home);
 
 		event.preventDefault();

@@ -1,0 +1,220 @@
+.introduction {
+    text-align: left;
+}
+
+.welcome-banner {
+    background: linear-gradient(135deg, rgba(133,88,111,0.1) 0%, rgba(60,42,33,0.1) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+}
+
+.welcome-banner h1 {
+    color: #3C2A21;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.welcome-banner p {
+    color: #666;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: #DFD3C3;
+    z-index: 0;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #DFD3C3;
+    color: #3C2A21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background: #85586F;
+    color: white;
+    transform: scale(1.1);
+}
+
+.step-label {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-label {
+    color: #3C2A21;
+    font-weight: 600;
+}
+
+.feature-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.feature-item {
+    background: rgba(255,255,255,0.9);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(133,88,111,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.feature-item h3 {
+    color: #3C2A21;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.feature-item p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.demo-section {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.demo-button {
+    background: linear-gradient(135deg, #85586F 0%, #3C2A21 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 200px;
+}
+
+.demo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(60,42,33,0.2);
+}
+
+@media (max-width: 768px) {
+    .feature-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-indicator::before {
+        display: none;
+    }
+    
+    .step {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* 添加模态框样式 */
+.demo-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.demo-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.demo-account-info {
+    background: rgba(133,88,111,0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.demo-account-info p {
+    margin: 0.5rem 0;
+    color: #3C2A21;
+    font-size: 1.1rem;
+}
+
+.demo-account-info span {
+    font-weight: 600;
+    color: #85586F;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close-button:hover {
+    color: #3C2A21;
+} 

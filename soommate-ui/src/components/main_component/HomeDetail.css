@@ -3,3 +3,107 @@
     text-align: left;
     margin: auto;
 }
+
+.home-detail-container {
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(133,88,111,0.2);
+}
+
+.welcome-header h2 {
+    color: #3C2A21;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.room-info {
+    background: linear-gradient(135deg, rgba(133,88,111,0.1) 0%, rgba(60,42,33,0.1) 100%);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room-info-item {
+    text-align: center;
+}
+
+.room-info-label {
+    font-size: 0.9rem;
+    color: #85586F;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.room-info-value {
+    font-size: 1.4rem;
+    color: #3C2A21;
+    font-weight: 600;
+}
+
+.bidders-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(133,88,111,0.2);
+}
+
+.bidders-header {
+    color: #3C2A21;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.bidders-header i {
+    margin-right: 0.5rem;
+    color: #85586F;
+}
+
+.bidders-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.bidder-item {
+    background: rgba(133,88,111,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: #3C2A21;
+    font-weight: 500;
+}
+
+.floor-plan-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.floor-plan-section img {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.floor-plan-caption {
+    color: #666;
+    font-style: italic;
+    font-size: 0.9rem;
+}
