@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/soommate-boot/static/css/main.3bdf9568.css",
-    "main.js": "/soommate-boot/static/js/main.c62e994d.js",
+    "main.css": "/soommate-boot/static/css/main.e02726e7.css",
+    "main.js": "/soommate-boot/static/js/main.98217f08.js",
     "index.html": "/soommate-boot/index.html",
-    "main.3bdf9568.css.map": "/soommate-boot/static/css/main.3bdf9568.css.map",
-    "main.c62e994d.js.map": "/soommate-boot/static/js/main.c62e994d.js.map"
+    "main.e02726e7.css.map": "/soommate-boot/static/css/main.e02726e7.css.map",
+    "main.98217f08.js.map": "/soommate-boot/static/js/main.98217f08.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bdf9568.css",
-    "static/js/main.c62e994d.js"
+    "static/css/main.e02726e7.css",
+    "static/js/main.98217f08.js"
   ]
 }
